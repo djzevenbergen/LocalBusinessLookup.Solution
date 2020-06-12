@@ -16,7 +16,7 @@ _An API build in C#/.Net Core 2.2.0 that uses token authentication, swagger docu
 * create a file named "appsettings.json" in the LocalBusinessLookup folder
 * populate it with the following text (replacing with your credentials)
 
-  ```
+```
 {
   "Logging": {
     "LogLevel": {
@@ -56,6 +56,10 @@ _An API build in C#/.Net Core 2.2.0 that uses token authentication, swagger docu
 * In your terminal, navigate to the project directory and run the commands dotnet restore and dotnet build to download dependencies and build the configuration.
 
 * To run MySQL migrations and create a database in your MySQL installation, enter the following command in your terminal: dotnet ef database update.
+
+* A user can get all using localhost:5000/api/businesses
+
+* a user can get a random business using localhost:5000/api/businesses/random
 
 * To see authentication in action, you should try to do a post request in postman with no header post: localhost:5000/api/businesses:
 
@@ -116,13 +120,15 @@ _An API build in C#/.Net Core 2.2.0 that uses token authentication, swagger docu
 
 
 * This API uses Swagger. 
-* You're going to need to comment out lines 137-258 of business controller to see it work.
+* You're going to need to comment out lines 137-258 of business controller and rebuild to see it work.
 
 * To launch the Swagger/OpenAPI utility in your browser, from the project directory in your terminal, enter dotnet run and open a browser page at localhost:5000.  You can now see all API routes grouped by controller.  Clicking on a route will expand it and show details of that route, and give you the option to "Try It Out."
 
 
 
 ## Known Bugs
+
+Swagger and versioning don't work at the same time
 
 There are no known bugs at the time of this update.
 
