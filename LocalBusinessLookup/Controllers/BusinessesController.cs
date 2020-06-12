@@ -7,8 +7,6 @@ using LocalBusinessLookup.Models;
 using Microsoft.AspNetCore.Authorization;
 using LocalBusinessLookup.Services;
 using Microsoft.EntityFrameworkCore;
-using LocalBusinessLookup.Env;
-
 
 
 namespace LocalBusinessLookup.Controllers
