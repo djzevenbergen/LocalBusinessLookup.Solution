@@ -97,7 +97,8 @@ namespace LocalBusinessLookup.Controllers
         query = query.Where(entry => entry.UserId == userId);
       }
       Dictionary<string, object> response = new Dictionary<string, object>();
-      response.Add("types", EnvironmentVariables.Types);
+      List<string> types = new List<string> { "restaurant", "shop" };
+      response.Add("types", types);
       response.Add("businesses", query);
       return response;
     }

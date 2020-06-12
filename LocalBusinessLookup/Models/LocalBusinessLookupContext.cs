@@ -10,6 +10,7 @@ namespace LocalBusinessLookup.Models
     }
 
     public DbSet<Business> Businesses { get; set; }
+    public DbSet<User> Users { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -25,6 +26,11 @@ namespace LocalBusinessLookup.Models
       new Business { BusinessId = 7, Name = "I Need", Description = "For whatever you need.", PhoneNumber = "6565656565", Type = "shop", WebSite = "lemon", UserId = 1 },
       new Business { BusinessId = 8, Name = "Good Times Clock Shop", Description = "We have clocks in all the timezones.", PhoneNumber = "9876543212", Type = "shop", WebSite = "https://www.google.com/", UserId = 2 },
       new Business { BusinessId = 9, Name = "Zebra Print Bread", Description = "We make bread that's partially toasted", PhoneNumber = "0212121212", Type = "restaurant", WebSite = "https://www.google.com/", UserId = 1 }
+      );
+
+      builder.Entity<User>()
+      .HasData(
+        new User { Id = 1, FirstName = "David", LastName = "Zevenbergen", Username = "DJTest", Password = "test" }
       );
     }
   }

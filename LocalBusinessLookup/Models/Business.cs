@@ -4,7 +4,7 @@ using System.Linq;
 using LocalBusinessLookup.Env;
 namespace LocalBusinessLookup.Models
 {
-  public class Business
+  public class Business : IValidatableObject
   {
     public int BusinessId { get; set; }
     [Required]
@@ -20,12 +20,12 @@ namespace LocalBusinessLookup.Models
 
     public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
     {
-      // List<string> types = new List<string> { "restaurant", "shop" };
+      List<string> types = new List<string> { "restaurant", "shop" };
 
-      if (!EnvironmentVariables.Types.Contains(Type))
+      if (!types.Contains(Type))
       {
         yield return new ValidationResult(
-            $"Please either use {EnvironmentVariables.Types[0]} or {EnvironmentVariables.Types[1]}",
+            $"Please either use {types[0]} or {types[1]}",
             new[] { "Type" });
       }
     }
