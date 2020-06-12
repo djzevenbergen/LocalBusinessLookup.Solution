@@ -53,9 +53,23 @@ _An API build in C#/.Net Core 2.2.0 that uses token authentication, swagger docu
 }
 ```
 
-* In your terminal, navigate to the project directory and run the commands dotnet restore and dotnet build to download dependencies and build the configuration.
+* In your terminal, navigate to the project directory and run the commands 
+```
+  dotnet restore 
+  dotnet build
+``` 
+* to download dependencies and build the configuration.
 
-* To run MySQL migrations and create a database in your MySQL installation, enter the following command in your terminal: dotnet ef database update.
+* To run MySQL migrations and create a database in your MySQL installation, enter the following command in your terminal: 
+```
+  dotnet ef database update.
+```
+* run the application using 
+```
+dotnet run
+```
+
+* use postman to interact with the api
 
 * A user can get all using localhost:5000/api/businesses
 
