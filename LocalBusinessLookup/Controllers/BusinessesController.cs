@@ -53,6 +53,7 @@ namespace LocalBusinessLookup.Controllers
     public void Delete(int id, int userId)
     {
       var businessToDelete = _db.Businesses.FirstOrDefault(entry => entry.BusinessId == id);
+      Console.WriteLine($"#######{businessToDelete.Name}");
       if (businessToDelete.UserId == userId)
       {
         _db.Businesses.Remove(businessToDelete);
