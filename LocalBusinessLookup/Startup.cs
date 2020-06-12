@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using LocalBusinessLookup.Helpers;
-using LocalBusinessLookup.Services;
+// using LocalBusinessLookup.Services;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using LocalBusinessLookup.Models;
-using Microsoft.OpenApi.Models;
+// using Microsoft.OpenApi.Models;
 using System;
 using System.Reflection;
 using System.IO;
@@ -60,7 +60,7 @@ namespace LocalBusinessLookup
       });
 
       // configure DI for application services
-      services.AddScoped<IUserService, UserService>();
+      //   services.AddScoped<IUserService, UserService>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

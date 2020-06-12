@@ -1,4 +1,4 @@
-namespace EarthlyRemedies.Helpers
+namespace LocalBusinessLookup.Helpers
 {
   public class AppSettings
   {
