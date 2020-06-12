@@ -10,7 +10,7 @@ using LocalBusinessLookup.Services;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using LocalBusinessLookup.Models;
-// using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi.Models;
 using System;
 using System.Reflection;
 using System.IO;
@@ -37,6 +37,12 @@ namespace LocalBusinessLookup
       // configure strongly typed settings objects
       var appSettingsSection = Configuration.GetSection("AppSettings");
       services.Configure<AppSettings>(appSettingsSection);
+
+      // Register the Swagger generator, defining 1 or more Swagger documents
+      services.AddSwaggerGen(c =>
+      {
+        c.SwaggerDoc("v1", new OpenApiInfo { Title = "Local Business Lookup", Version = "v1" });
+      });
 
       // configure jwt authentication
       var appSettings = appSettingsSection.Get<AppSettings>();
@@ -74,7 +80,13 @@ namespace LocalBusinessLookup
 
       app.UseAuthentication();
 
+      app.UseSwagger();
 
+      app.UseSwaggerUI(c =>
+      {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+        c.RoutePrefix = string.Empty;
+      });
       app.UseMvc();
 
     }
