@@ -14,13 +14,13 @@ namespace LocalBusinessLookup.Controllers
   [ApiVersion("1.0")]
   [Route("api/businesses")]
   [ApiController]
-  public class BusinessesV1Controller : ControllerBase
+  public class BusinessesController : ControllerBase
   {
     private LocalBusinessLookupContext _db;
 
     private IUserService _userService;
 
-    public BusinessesV1Controller(LocalBusinessLookupContext db, IUserService userService)
+    public BusinessesController(LocalBusinessLookupContext db, IUserService userService)
     {
       _db = db;
       _userService = userService;

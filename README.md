@@ -57,9 +57,6 @@ _An API build in C#/.Net Core 2.2.0 that uses token authentication, swagger docu
 
 * To run MySQL migrations and create a database in your MySQL installation, enter the following command in your terminal: dotnet ef database update.
 
-
-* This API uses Swagger. To launch the Swagger/OpenAPI utility in your browser, from the project directory in your terminal, enter dotnet run and open a browser page at localhost:5000.  You can now see all API routes grouped by controller.  Clicking on a route will expand it and show details of that route, and give you the option to "Try It Out."
-
 * To see authentication in action, you should try to do a post request in postman with no header post: localhost:5000/api/businesses:
 
 ```
@@ -115,6 +112,14 @@ _An API build in C#/.Net Core 2.2.0 that uses token authentication, swagger docu
 
 * to see versioning at work, you can add run get requests to http://localhost:5000/api/businesses/?api-version=2.0 and http://localhost:5000/api/businesses/?api-version=1.0
 * the response headers should contains different versions
+
+
+
+* This API uses Swagger. 
+* You're going to need to comment out lines 137-258 of business controller to see it work.
+
+* To launch the Swagger/OpenAPI utility in your browser, from the project directory in your terminal, enter dotnet run and open a browser page at localhost:5000.  You can now see all API routes grouped by controller.  Clicking on a route will expand it and show details of that route, and give you the option to "Try It Out."
+
 
 
 ## Known Bugs
