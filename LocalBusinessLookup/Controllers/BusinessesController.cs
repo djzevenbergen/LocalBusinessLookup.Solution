@@ -69,17 +69,17 @@ namespace LocalBusinessLookup.Controllers
 
       if (name != null)
       {
-        query = query.Where(entry => entry.Name == name);
+        query = query.Where(entry => entry.Name.ToLower().Contains(name.ToLower()));
       }
 
       if (type != null)
       {
-        query = query.Where(entry => entry.Type.Contains(type));
+        query = query.Where(entry => entry.Type.ToLower().Contains(type.ToLower()));
       }
 
       if (description != null)
       {
-        query = query.Where(entry => entry.Description.Contains(description));
+        query = query.Where(entry => entry.Description.ToLower().Contains(description.ToLower()));
       }
 
       if (phoneNumber != null)
