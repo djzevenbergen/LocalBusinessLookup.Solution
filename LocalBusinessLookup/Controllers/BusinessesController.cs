@@ -4,6 +4,8 @@ using System;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using LocalBusinessLookup.Models;
+using Microsoft.AspNetCore.Authorization;
+using LocalBusinessLookup.Services;
 using Microsoft.EntityFrameworkCore;
 using LocalBusinessLookup.Env;
 
@@ -16,12 +18,16 @@ namespace LocalBusinessLookup.Controllers
   {
     private LocalBusinessLookupContext _db;
 
-    public BusinessesController(LocalBusinessLookupContext db)
+    private IUserService _userService;
+
+    public BusinessesController(LocalBusinessLookupContext db, IUserService userService)
     {
       _db = db;
+      _userService = userService;
     }
 
     // POST api/Businesses
+    [Authorize]
     [HttpPost]
     public void Post([FromBody] Business business)
     {
@@ -37,6 +43,7 @@ namespace LocalBusinessLookup.Controllers
     }
 
     //PUT api/Businesses/userId/BusinessId
+    [Authorize]
     [HttpPut("{userId}/{id}")]
     public void Put(int userId, int id, [FromBody] Business business)
     {
@@ -49,11 +56,11 @@ namespace LocalBusinessLookup.Controllers
     }
 
     //http://localhost:5000/api/Businesses/1/9
+    [Authorize]
     [HttpDelete("{userId}/{id}")]
     public void Delete(int id, int userId)
     {
       var businessToDelete = _db.Businesses.FirstOrDefault(entry => entry.BusinessId == id);
-      Console.WriteLine($"#######{businessToDelete.Name}");
       if (businessToDelete.UserId == userId)
       {
         _db.Businesses.Remove(businessToDelete);
@@ -71,7 +78,6 @@ namespace LocalBusinessLookup.Controllers
       foreach (Business b in query)
       {
         idList.Add(b.BusinessId);
-        Console.WriteLine($"####{b.BusinessId}");
       }
 
       Random rand = new Random();
@@ -80,6 +86,7 @@ namespace LocalBusinessLookup.Controllers
       return query[r];
 
     }
+
     // GET api/Businesses
     [HttpGet]
     // public ActionResult<IEnumerable<Remedy>> Get(string name, string details, string ailment, string category, string ingredients, int userId)

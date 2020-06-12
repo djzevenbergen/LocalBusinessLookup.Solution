@@ -35,6 +35,14 @@ namespace LocalBusinessLookup.Controllers
       return Ok(user);
     }
 
+    [AllowAnonymous]
+    [HttpPost("create")]
+    public void Create([FromBody] User user)
+    {
+      _db.Users.Add(user);
+      _db.SaveChanges();
+    }
+
 
     [HttpGet]
     public IActionResult GetAll()
