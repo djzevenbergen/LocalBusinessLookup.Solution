@@ -61,6 +61,25 @@ namespace LocalBusinessLookup.Controllers
       }
     }
 
+    [HttpGet("random")]
+    public ActionResult<Business> Random()
+    {
+      var query = _db.Businesses.AsQueryable().ToList();
+      List<int> idList = new List<int>();
+
+
+      foreach (Business b in query)
+      {
+        idList.Add(b.BusinessId);
+        Console.WriteLine($"####{b.BusinessId}");
+      }
+
+      Random rand = new Random();
+      int r = rand.Next(0, idList.Count);
+      Console.WriteLine(r);
+      return query[r];
+
+    }
     // GET api/Businesses
     [HttpGet]
     // public ActionResult<IEnumerable<Remedy>> Get(string name, string details, string ailment, string category, string ingredients, int userId)
