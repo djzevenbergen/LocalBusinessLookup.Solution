@@ -11,9 +11,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using LocalBusinessLookup.Models;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Reflection;
-using System.IO;
+
 
 namespace LocalBusinessLookup
 {
@@ -50,6 +48,7 @@ namespace LocalBusinessLookup
       services.AddSwaggerGen(c =>
       {
         c.SwaggerDoc("v1", new OpenApiInfo { Title = "Local Business Lookup", Version = "v1" });
+
       });
 
       // configure jwt authentication
